@@ -25,16 +25,6 @@ class BST:
                 self.right.insert(new_value)
 
 
-    def get_node_by_value(self, value):
-        if value == self.value:
-            return self.value 
-        elif self.left and value < self.value:
-            return self.left.get_node_by_value(value)
-        elif self.right and value >= self.value:
-            return self.right.get_node_by_value(value)
-        else:
-            return None 
-
     
     ### 
 
@@ -60,16 +50,6 @@ class BST:
 
 
 
-         
-
-    def depth_first_traversal(self):
-        if self.left:
-            self.left.depth_first_traversal()
-        print('Depth: {depth}, Value: {value}'.format(depth=self.depth, value=self.value))
-        if self.right:
-            self.right.depth_first_traversal()
-
-
 test = BST(1)
 
 
@@ -77,7 +57,6 @@ test.insert(10)
 test.insert(2)
 test.insert(10)
 test.insert(18)
-print(test.depth_first_traversal())
 print()
 print(test.breadth_first_traversal(test))
 
