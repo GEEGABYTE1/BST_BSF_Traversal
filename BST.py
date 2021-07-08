@@ -1,6 +1,8 @@
 import random
+from Queue import Queue
 
 class BST:
+    queue = Queue()
     def __init__(self, value, depth=1):
         self.value = value 
         self.depth = depth 
@@ -33,9 +35,31 @@ class BST:
         else:
             return None 
 
+    
+    ### 
+
     def breadth_first_traversal(self, path):
-        if not self.left and self.right:
-            print(self.right.value)
+        nodes = [self]
+        while len(nodes) > 0:
+            current_node = nodes.pop()
+            self.queue.enqueue(current_node.value)
+            if not current_node.right and not current_node.left:
+                pass
+            elif not current_node.right:
+                nodes.append(current_node.left)
+            elif not current_node.left:
+                nodes.append(current_node.right)
+            else:
+                nodes.append(current_node.right)
+                nodes.append(current_node.left)
+        
+        while self.queue.head_node != None:
+            print(self.queue.dequeue())
+
+    ###
+
+
+
          
 
     def depth_first_traversal(self):
@@ -48,9 +72,12 @@ class BST:
 
 test = BST(1)
 
-for i in range(4):
-    test.insert(random.randint(1, 20))
 
+test.insert(10)
+test.insert(2)
+test.insert(10)
+test.insert(18)
 print(test.depth_first_traversal())
 print()
-print(test.get_node_by_value(5))
+print(test.breadth_first_traversal(test))
+
