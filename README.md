@@ -1,2 +1,5 @@
-# BST_BSF_Traversal
-Binary Search Tree Traversal (Pre-order) using Breadth-First 🌳😷
+# BST Breadth-First Traversal Modification 😷🌳
+
+Binary Search Tree Pre-Order traversal using Breadth-First Traversal.
+
+Pre-Order traverses from: *current node -> left node -> right node*
